@@ -16,9 +16,13 @@ body {
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  max-width: 150px;       /* or any width you want */
+  width: 50%;
+  height: auto;       /* maintain aspect ratio */
+  display: block;     /* remove inline spacing issues */
+  margin: 0 auto;     /* center horizontally */
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

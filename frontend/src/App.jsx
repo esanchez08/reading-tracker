@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import BookForm from "./BookForm";
 import BookList from "./BookList";
+import logo from "./assests/ARLlogo.svg"
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>A Reader's Log</h1>
+      <img src={logo} alt="Logo" classname="App-logo" />
       <BookForm onAdd={addBook} />
       <BookList books={books} onAddReview={addReview} />
     </div>
