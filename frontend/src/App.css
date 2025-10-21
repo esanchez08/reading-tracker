@@ -7,22 +7,23 @@
 }
 
 h1 {
-  color:#FFFDD0;
   text-align: center;
+  font-size: large;
+  color: rgba(255, 255, 255, 0.8); /* transparent text */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05); /* optional light film */
+  background: none;
+  font-family: 'Courier New', Courier, monospace;
+  backdrop-filter: blur(10px); /* glass-like effect */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
+
+
 
 body {
   background-color: black;
 }
-
-.App-logo {
-  max-width: 150px;       /* or any width you want */
-  width: 50%;
-  height: auto;       /* maintain aspect ratio */
-  display: block;     /* remove inline spacing issues */
-  margin: 0 auto;     /* center horizontally */
-}
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -51,5 +52,96 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+.book-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.book-form {
+  background: rgba(255, 255, 255, 0.05); 
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 50%;
+  max-width: 800px;
+  height: 30px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.book-form:hover{
+  box-shadow: 0 0 25px rgba(251, 251, 251, 0.5); /* soft glow */
+  transform: scale(1.02);
+}
+
+.book-form input {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.book-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.book-form input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.add-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 32px;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin-left: 5px;
+  line-height: 1;
+  appearance: none; /* removes default button styling */
+  -webkit-appearance: none;
+}
+
+.add-btn:hover {
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.add-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* slight lift */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

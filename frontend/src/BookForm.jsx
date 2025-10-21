@@ -1,32 +1,44 @@
 import { useState } from "react";
 
-export default function BookForm({ onAdd }) {
+function BookForm({ onAdd }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [genre, setGenre] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !author) return;
-    onAdd({ title, author });
+    if (!title || !author || !genre) return;
+    onAdd({ title, author, genre });
     setTitle("");
     setAuthor("");
+    setGenre("");
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
-      <input
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        style={{ marginRight: "0.5rem" }}
-      />
-      <input
-        placeholder="Author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-        style={{ marginRight: "0.5rem" }}
-      />
-      <button type="submit">Add Book</button>
-    </form>
+    <div className="book-form-container">
+      <form className="book-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Book Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Genre"
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        />
+        <button type="submit" className="add-btn">+</button>
+      </form>
+    </div>
   );
 }
+
+export default BookForm;
